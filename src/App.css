@@ -46,3 +46,46 @@
     font-size: 0.85rem;
   }
 }
+
+.bloqueados-panel {
+  flex: 1;
+  background-color: #1a1d24;
+  border-radius: 8px;
+  padding: 1rem;
+  height: fit-content;
+  min-width: 220px;
+}
+
+.bloqueados-panel ul {
+  list-style: none;
+}
+
+.bloqueados-panel li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.bloqueados-panel img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: grayscale(1);
+}
+
+.bloqueados-panel li span {
+  flex: 1;
+  font-size: 0.85rem;
+}
+
+.bloqueados-panel button {
+  background-color: #22252d;
+  border: 1px solid #2c2f38;
+  color: #97ce4c;
+  cursor: pointer;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+}

@@ -3,6 +3,7 @@ import Header from './components/Header'
 import SearchBar from './components/SearchBar'
 import CharacterList from './components/CharacterList'
 import FavoritesPanel from './components/FavoritesPanel'
+import BlockedPanel from './components/BlockedPanel'
 import Stats from './components/Stats'
 import Loader from './components/Loader'
 import ErrorMessage from './components/ErrorMessage'
@@ -64,13 +65,21 @@ function App() {
             />
           )}
         </main>
-        <FavoritesPanel favoritos={favoritos} onQuitar={(id) =>
-          setFavoritos((prev) => prev.filter((f) => f.id !== id))
-        } />
+        <FavoritesPanel
+          favoritos={favoritos}
+          onQuitar={(id) =>
+            setFavoritos((prev) => prev.filter((f) => f.id !== id))
+          }
+        />
+        <BlockedPanel
+          bloqueados={bloqueados}
+          onDesbloquear={(id) =>
+            setBloqueados((prev) => prev.filter((b) => b.id !== id))
+          }
+        />
       </div>
     </div>
   )
 }
 
 export default App
-
