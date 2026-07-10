@@ -19,3 +19,30 @@
   font-weight: bold;
   color: #97ce4c;
 }
+
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+  .favoritos-panel {
+    order: -1;
+  }
+  .stats {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.3rem;
+  }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .card h3 {
+    font-size: 0.85rem;
+  }
+}
