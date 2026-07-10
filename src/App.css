@@ -1,50 +1,173 @@
-.stats {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 1rem;
-  background-color: #14161b;
+.header {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background-color: #1a1d24;
+  border-bottom: 2px solid #2c2f38;
 }
 
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.header h1 {
+  color: #97ce4c;
+}
+
+.integrantes {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-top: 0.3rem;
+}
+
+.main-content {
+  flex: 2;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #2c2f38;
+  background-color: #1a1d24;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background-color: #1a1d24;
+  border-radius: 10px;
+  padding: 0.9rem;
+  text-align: center;
+  border: 1px solid #2c2f38;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+  border-color: #97ce4c;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.card h3 {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+.card p {
   font-size: 0.8rem;
   color: #aaa;
 }
 
-.stat-num {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: #97ce4c;
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
 }
 
-@media (max-width: 768px) {
-  .layout {
-    flex-direction: column;
-  }
-  .favoritos-panel {
-    order: -1;
-  }
-  .stats {
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  .grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  }
+.btn-fav, .btn-block {
+  border: 1px solid #2c2f38;
+  background-color: #22252d;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: background-color 0.15s ease, transform 0.1s ease;
 }
-@media (max-width: 480px) {
-  .header h1 {
-    font-size: 1.3rem;
-  }
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .card h3 {
-    font-size: 0.85rem;
-  }
+
+.btn-fav:hover, .btn-block:hover {
+  transform: scale(1.03);
+}
+
+.btn-fav:active, .btn-block:active {
+  transform: scale(0.97);
+}
+
+.btn-fav.activo {
+  background-color: #f1c40f;
+  color: #000;
+  border-color: #f1c40f;
+}
+
+.btn-block.activo {
+  background-color: #ff6b6b;
+  color: #000;
+  border-color: #ff6b6b;
+}
+
+.btn-fav:not(.activo):hover {
+  border-color: #f1c40f;
+  color: #f1c40f;
+}
+
+.btn-block:not(.activo):hover {
+  border-color: #ff6b6b;
+  color: #ff6b6b;
+}
+
+.loader, .error-message, .empty {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.error-message {
+  color: #ff6b6b;
+}
+
+.layout {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  align-items: flex-start;
+}
+
+.favoritos-panel {
+  flex: 1;
+  background-color: #1a1d24;
+  border-radius: 8px;
+  padding: 1rem;
+  height: fit-content;
+  min-width: 220px;
+}
+
+.favoritos-panel ul {
+  list-style: none;
+}
+
+.favoritos-panel li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.favoritos-panel img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.favoritos-panel li span {
+  flex: 1;
+  font-size: 0.85rem;
+}
+
+.favoritos-panel button {
+  background: none;
+  border: none;
+  color: #ff6b6b;
+  cursor: pointer;
 }
 
 .bloqueados-panel {
@@ -88,4 +211,54 @@
   font-size: 0.75rem;
   padding: 0.3rem 0.5rem;
   border-radius: 4px;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  background-color: #14161b;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+.stat-num {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #97ce4c;
+}
+
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+  .favoritos-panel {
+    order: -1;
+  }
+  .stats {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.3rem;
+  }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .card h3 {
+    font-size: 0.85rem;
+  }
 }
