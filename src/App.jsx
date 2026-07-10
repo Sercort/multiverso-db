@@ -7,6 +7,7 @@ import Stats from './components/Stats'
 import Loader from './components/Loader'
 import ErrorMessage from './components/ErrorMessage'
 import useFetch from './hooks/useFetch'
+import useLocalStorage from './hooks/useLocalStorage'
 import './App.css'
 
 const API_URL = 'https://rickandmortyapi.com/api/character'
@@ -14,8 +15,8 @@ const API_URL = 'https://rickandmortyapi.com/api/character'
 function App() {
   const { data: personajes, loading, error } = useFetch(API_URL)
   const [busqueda, setBusqueda] = useState('')
-  const [favoritos, setFavoritos] = useState([])
-  const [bloqueados, setBloqueados] = useState([])
+  const [favoritos, setFavoritos] = useLocalStorage('favoritos', [])
+  const [bloqueados, setBloqueados] = useLocalStorage('bloqueados', [])
 
   const personajesFiltrados = personajes
     .filter((p) => !bloqueados.some((b) => b.id === p.id))
