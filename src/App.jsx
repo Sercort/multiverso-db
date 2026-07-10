@@ -3,6 +3,7 @@ import Header from './components/Header'
 import SearchBar from './components/SearchBar'
 import CharacterList from './components/CharacterList'
 import FavoritesPanel from './components/FavoritesPanel'
+import Stats from './components/Stats'
 import Loader from './components/Loader'
 import ErrorMessage from './components/ErrorMessage'
 import useFetch from './hooks/useFetch'
@@ -36,13 +37,17 @@ function App() {
       }
       return [...prev, personaje]
     })
-    // Si se bloquea, se retira automáticamente de favoritos
     setFavoritos((prev) => prev.filter((f) => f.id !== personaje.id))
   }
 
   return (
     <div className="app">
       <Header />
+      <Stats
+        total={personajes.length}
+        favoritos={favoritos.length}
+        bloqueados={bloqueados.length}
+      />
       <div className="layout">
         <main className="main-content">
           <SearchBar valor={busqueda} onCambiar={setBusqueda} />
