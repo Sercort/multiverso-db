@@ -21,8 +21,14 @@ function App() {
 
   const personajesFiltrados = personajes
     .filter((p) => !bloqueados.some((b) => b.id === p.id))
-    .filter((p) => p.name.toLowerCase().includes(busqueda.toLowerCase()))
-
+    .filter((p) => {
+      const texto = busqueda.toLowerCase()
+      return (
+        p.name.toLowerCase().includes(texto) ||
+        p.species.toLowerCase().includes(texto) ||
+        p.status.toLowerCase().includes(texto)
+      )
+    })
   function toggleFavorito(personaje) {
     setFavoritos((prev) =>
       prev.some((f) => f.id === personaje.id)

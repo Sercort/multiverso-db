@@ -2,7 +2,11 @@ import CharacterCard from './CharacterCard'
 
 function CharacterList({ personajes, favoritos, bloqueados, onToggleFavorito, onToggleBloqueado }) {
   if (personajes.length === 0) {
-    return <p className="empty">No hay personajes para mostrar.</p>
+    return (
+      <p className="empty">
+        No se encontraron personajes con ese criterio de búsqueda.
+      </p>
+    )
   }
 
   return (
